@@ -1,2 +1,2 @@
 ## This is still under development and testing.
-![Screenshot 2024-02-09 192227](https://github.com/Edgar-Mendonca/ResuVox/assets/67676399/95acc5f5-8d84-4600-896c-5dbba68b105c)
+![EXAMPLE](https://github.com/Edgar-Mendonca/ResuVox/assets/67676399/db1caddd-b303-4b95-b24f-f24af8dbd3e5)
