@@ -102,7 +102,6 @@ document.getElementById('phone').addEventListener('input', updateResume);
 document.getElementById('country').addEventListener('input', updateResume);
 document.getElementById('city').addEventListener('input', updateResume);
 document.getElementById('photo').addEventListener('change', updateResume);
-document.getElementById('quill.root.innerHTML').addEventListener('change', updateResume);
 
 
 // Call updateResume initially to populate the generated resume with default content
