@@ -1,3 +1,35 @@
+// Function to initialize the Quill editor
+const quill = new Quill('#professionalSummary', {
+    theme: 'snow', // or 'bubble' for a bubble theme
+    placeholder: 'Write your professional summary here...',
+    modules: {
+        toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],        
+            ['blockquote', 'code-block'],
+            [{ 'header': 1 }, { 'header': 2 }],               
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],      
+            [{ 'indent': '-1' }, { 'indent': '+1' }],          
+            [{ 'direction': 'rtl' }],                         
+
+            [{ 'size': ['small', false, 'large', 'huge'] }],  
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ 'color': [] }, { 'background': [] }],          
+            [{ 'font': [] }],
+            [{ 'align': [] }],
+
+            ['clean'],                                         
+        ],
+    },
+});
+
+// Update the generated resume when the editor content changes
+quill.on('text-change', function() {
+    updateResume();
+});
+
+
 // Function to update the generated resume based on user input
 function updateResume() {
     // Retrieve input values
@@ -9,6 +41,8 @@ function updateResume() {
     const country = document.getElementById('country').value;
     const city = document.getElementById('city').value;
     const photoInput = document.getElementById("photo");
+    const professionalSummary = document.getElementById("professionalSummary");
+
 
     // Generate the resume content dynamically
     let resumeContent = `
@@ -19,7 +53,12 @@ function updateResume() {
                 <p><i class="bi bi-envelope" style="display:inline;"></i> ${email}</p>
                 <p><i class="bi bi-telephone" style="display:inline;"></i> ${phone}</p>
                 <p><i class="bi bi-geo-alt" style="display:inline;"></i> ${country}, ${city}</p>
+                <h4><i class="bi bi-briefcase"></i> Professional Summary</h4>
+                <div>${quill.root.innerHTML}</div>
             </div>
+        <div>
+        
+
     `;
 
     // Check if a file is selected
@@ -63,6 +102,8 @@ document.getElementById('phone').addEventListener('input', updateResume);
 document.getElementById('country').addEventListener('input', updateResume);
 document.getElementById('city').addEventListener('input', updateResume);
 document.getElementById('photo').addEventListener('change', updateResume);
+document.getElementById('quill.root.innerHTML').addEventListener('change', updateResume);
+
 
 // Call updateResume initially to populate the generated resume with default content
 updateResume();

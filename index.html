@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 </head>
 <body style="font-family: 'Open Sans', sans-serif;">
@@ -80,6 +82,14 @@
                     </div>
                 </div>
                 <hr>
+
+                <!-- Professional Summary -->
+                <div class="mb-3">
+                    <h2><span class="material-symbols-outlined">summarize</span> Professional Summary</h2>
+                    <div id="professionalSummary" class="quill-editor"></div>
+                </div>
+                <hr>
+
             </div>
 
             <!-- Right Half: Template Selector and Generated Resume -->
@@ -88,6 +98,7 @@
                     <!-- Generated resume content will appear here -->
                 </div>
             </div>
+
             
 
         </div>
