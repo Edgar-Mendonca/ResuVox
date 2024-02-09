@@ -20,7 +20,6 @@ function updateResume() {
                 <p><i class="bi bi-telephone" style="display:inline;"></i> ${phone}</p>
                 <p><i class="bi bi-geo-alt" style="display:inline;"></i> ${country}, ${city}</p>
             </div>
-            <hr>
     `;
 
     // Check if a file is selected

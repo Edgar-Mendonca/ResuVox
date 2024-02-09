@@ -14,7 +14,10 @@
     justify-content: space-between;
 }
 
-.left-container, .right-container {
+.left-container {
+    width: 45%;
+}
+.right-container {
     width: 45%;
 }
 
