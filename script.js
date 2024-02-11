@@ -41,24 +41,20 @@ function updateResume() {
     const country = document.getElementById('country').value;
     const city = document.getElementById('city').value;
     const photoInput = document.getElementById("photo");
-    const professionalSummary = document.getElementById("professionalSummary");
-
+    const professionalSummary = quill.getLength() > 1; // Check if there's content in Quill editor
 
     // Generate the resume content dynamically
     let resumeContent = `
         <div class="container py-3 px-3">
             <div class="text-left">
                 <h2><strong>${firstName} ${lastName}</strong></h2>
-                <p>${jobTitle}</p>
-                <p><i class="bi bi-envelope" style="display:inline;"></i> ${email}</p>
-                <p><i class="bi bi-telephone" style="display:inline;"></i> ${phone}</p>
-                <p><i class="bi bi-geo-alt" style="display:inline;"></i> ${country}, ${city}</p>
-                <h4><i class="bi bi-briefcase"></i> Professional Summary</h4>
-                <div>${quill.root.innerHTML}</div>
+                ${jobTitle ? `<p>${jobTitle}</p>` : ''}
+                ${email ? `<p><i class="bi bi-envelope" style="display:inline;"></i> ${email}</p>` : ''}
+                ${phone ? `<p><i class="bi bi-telephone" style="display:inline;"></i> ${phone}</p>` : ''}
+                ${country && city ? `<p><i class="bi bi-geo-alt" style="display:inline;"></i> ${country}, ${city}</p>` : ''}
+                ${professionalSummary ? `<h4><i class="bi bi-briefcase"></i> Professional Summary</h4><div>${quill.root.innerHTML}</div>` : ''}
             </div>
         <div>
-        
-
     `;
 
     // Check if a file is selected
@@ -71,7 +67,7 @@ function updateResume() {
             resumeContent += `
                 <div class="row text-right">
                     <div class="col-md-3">
-                        <img src="${photoUrl}" alt="User Photo" style="width: 200px; height: 200px;">
+                        <img src="${photoUrl}" alt="User Photo" style="width: 180px; height: 180px;">
                     </div>
                 </div>
             `;
@@ -92,17 +88,3 @@ function updateResume() {
         document.getElementById('generatedResume').innerHTML = resumeContent;
     }
 }
-
-// Event listeners to trigger the updateResume function on input change
-document.getElementById('jobTitle').addEventListener('input', updateResume);
-document.getElementById('firstName').addEventListener('input', updateResume);
-document.getElementById('lastName').addEventListener('input', updateResume);
-document.getElementById('email').addEventListener('input', updateResume);
-document.getElementById('phone').addEventListener('input', updateResume);
-document.getElementById('country').addEventListener('input', updateResume);
-document.getElementById('city').addEventListener('input', updateResume);
-document.getElementById('photo').addEventListener('change', updateResume);
-
-
-// Call updateResume initially to populate the generated resume with default content
-updateResume();
