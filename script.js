@@ -88,3 +88,17 @@ function updateResume() {
         document.getElementById('generatedResume').innerHTML = resumeContent;
     }
 }
+
+// Event listeners to trigger the updateResume function on input change
+document.getElementById('jobTitle').addEventListener('input', updateResume);
+document.getElementById('firstName').addEventListener('input', updateResume);
+document.getElementById('lastName').addEventListener('input', updateResume);
+document.getElementById('email').addEventListener('input', updateResume);
+document.getElementById('phone').addEventListener('input', updateResume);
+document.getElementById('country').addEventListener('input', updateResume);
+document.getElementById('city').addEventListener('input', updateResume);
+document.getElementById('photo').addEventListener('change', updateResume);
+
+
+// Call updateResume initially to populate the generated resume with default content
+updateResume();
