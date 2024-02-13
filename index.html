@@ -21,7 +21,7 @@
     <div class="container-fluid py-5 px-3">
         <div class="row">
             <!-- Left Half: Input Containers -->
-            <div class="col-lg-6 left-container">
+            <div class="col-lg-6 left-container" id="leftContainer">
                 <div class="text-center py-2">
                     <img src="static/images/logo.jpeg" alt="" height="60" class="d-inline-block align-middle">
                     <h2 class="font-weight-bold d-inline-block align-middle">ResuVox</h2>
@@ -112,11 +112,23 @@
             </div>
 
             <!-- Right Half: Template Selector and Generated Resume -->
-            <div class="col-lg-6 right-container">
+            <div class="col-lg-6 right-container" id="rightContainer">
+                <div class="dropdown text-center py-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Template
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="templateSelector">
+                        <li><a class="dropdown-item" href="#" value="default">Default Template</a></li>
+                        <li><a class="dropdown-item" href="#" value="template1">Template 1</a></li>
+                        <li><a class="dropdown-item" href="#" value="template2">Template 2</a></li>
+                        <!-- Add more template options as needed -->
+                    </ul>
+                </div>
                 <div id="generatedResume" class="generated-resume" style="margin: 0 auto;">
                     <!-- Generated resume content will appear here -->
                 </div>
             </div>
+
 
             
 
